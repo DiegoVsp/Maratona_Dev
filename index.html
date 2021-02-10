@@ -18,8 +18,8 @@
       <img src="./assets/logo.svg" alt="Logo Dev Finance">
     </h1>
   </header>
-  <main class="container">
 
+  <main class="container">
     <section id="balance">
       <h2 class="sr-only">Balanço</h2>
       <div class="card">
@@ -27,17 +27,17 @@
           <span>Entradas</span>
           <img src="./assets/income.svg" alt="Imagem de entradas">
         </h3>
-        <p>R$ 5.000,00</p>
+        <p id="incomeDisplay">R$ 5.000,00</p>
       </div>
       <div class="card">
         <h3><span>Saídas</span>
           <img src="./assets/expense.svg" alt="Imagem de Saídas"></h3>
-        <p>R$ 2.000,00</p>
+        <p id="expenseDisplay">R$ 2.000,00</p>
       </div>
       <div class="card total">
         <h3><span>Total</span>
           <img src="./assets/total.svg" alt="Imagem do Total"></h3>
-        <p>3.000,00</p>
+        <p id="totalDisplay">3.000,00</p>
       </div>
     </section>
 
@@ -56,42 +56,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="description">Luz</td>
-            <td class="expense">-R$500,00</td>
-            <td class="date">23/01/2021</td>
-            <td>
-              <img src="./assets/minus.svg" alt="Remover transação">
-            </td>
-          </tr>
-          <tr>
-            <td class="description">Criação de Website</td>
-            <td class="income">R$5000,00</td>
-            <td class="date">23/01/2021</td>
-            <td>
-              <img src="./assets/minus.svg" alt="Remover transação">
-            </td>
-          </tr>
-          <tr>
-            <td class="description">Internet</td>
-            <td class="expense">R$200,00</td>
-            <td class="date">23/01/2021</td>
-            <td>
-              <img src="./assets/minus.svg" alt="Remover transação">
-            </td>
-          </tr>
+         
         </tbody>
       </table>
     </section>
   </main>
-  <!--  -->
+
+  <!-- MODAL -->
   <div class="modal-overlay">
     <!-- caixa preta -->
     <div class="modal">
       <!-- conteudo -->
       <div id="form">
         <h2>Nova Transação</h2>
-        <form action="">
+        <form action="" onsubmit="Form.submit(event)">
           <div class="input-group">
             <label class="sr-only" for="description">Descrição: </label>
             <input type="text" id="description" name="description" placeholder="Descrição">
@@ -114,22 +92,13 @@
       </div>
     </div>
   </div>
+  <!-- Footer -->
   <footer>
     <p>2021 - dev.finance$</p>
   </footer>
-  <script>
-    const Modal = {
-      open(){
-        //Abrir Modal
-        //Adicionar a classe active ao modal
-        document.querySelector('.modal-overlay').classList.add('active')
-      },
-      close(){
-        //fechar o modal
-       document.querySelector('.modal-overlay').classList.remove('active')
-      }
-    }
-    
+
+  <script src="./script.js">
+
   </script>
 </body>
 
