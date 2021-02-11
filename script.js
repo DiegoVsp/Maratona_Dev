@@ -25,14 +25,13 @@ const Modal = {
 
 const Storage = {
   get() {
-   return JSON.parse(localStorage.getItem("dev.finances:transactions"))||[]
+   return JSON.parse(localStorage.getItem("dev.finances:transaction"))||[]
    },
+
   set(transaction) { 
-    localStorage.setItem("dev.finances:Transaction",JSON.stringify(transaction))
+    localStorage.setItem("dev.finances:transaction",JSON.stringify(transaction))
   },
 }
-
-// const transaction = 
 
 // Eu preciso somar as entradas 
 // depois eu preciso somar as Saídas e
@@ -44,12 +43,12 @@ const Transaction = {
 
   add(transaction) {
     Transaction.all.push(transaction)
-    App.reload()
+    App.reload();
   },
   remove(index) {
     Transaction.all.splice(index, 1)
 
-    App.reload()
+    App.reload();
   },
 
   incomes() {
@@ -131,9 +130,9 @@ const DOM = {
 
 const Utils = {
   formatAmount(value) {
-    // value = Number(value.replace(/\,\./g, "")) * 100
+    // value = Number(value.replace(/\,?\.?/g, "")) * 100
     value = Number(value) * 100
-    return value
+    return Math.round(value)
   },
   formatDate(date) {
     const splittedDate = date.split("-")
@@ -228,14 +227,14 @@ const App = {
     })
 
     DOM.updateBalance()
-    
+
     Storage.set(Transaction.all)
   },
   reload() {
     DOM.clearTransactions()
-    App.init()
+    App.init();
   },
 }
 
-App.init()
+App.init();
 
